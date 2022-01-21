@@ -1,13 +1,13 @@
-body {
-
-}
-
 #field {
     background-color: rgb(121, 45, 1);
     color:rgb(255, 215, 36);
     padding: 5px 20px 20px 20px;
-    width: 800px;
+    width: 820px;
     margin:auto;
+}
+#eight {
+    color:rgb(255, 215, 36);
+    font-size: 150%;
 }
 
 .blackfield {
