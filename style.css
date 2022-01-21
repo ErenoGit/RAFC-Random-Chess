@@ -1,0 +1,25 @@
+body {
+
+}
+
+#pole {
+    
+    background-color: rgb(121, 45, 1);
+    padding: 15px;
+    width: 800px;
+}
+
+.poleczarne {
+    background-color: black;
+    width: 100px;
+    height: 100px;
+    color: wheat;
+    float: left;
+}
+.polebiale {
+    background-color: wheat;
+    width: 100px;
+    height: 100px;
+    color: black;
+    float: left;
+}
