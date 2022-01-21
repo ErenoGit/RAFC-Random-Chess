@@ -2,21 +2,22 @@ body {
 
 }
 
-#pole {
-    
+#field {
     background-color: rgb(121, 45, 1);
-    padding: 15px;
+    color:rgb(255, 215, 36);
+    padding: 5px 20px 20px 20px;
     width: 800px;
+    margin:auto;
 }
 
-.poleczarne {
+.blackfield {
     background-color: black;
     width: 100px;
     height: 100px;
     color: wheat;
     float: left;
 }
-.polebiale {
+.whitefield {
     background-color: wheat;
     width: 100px;
     height: 100px;
