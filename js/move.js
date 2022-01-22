@@ -49,7 +49,7 @@ function IsCanMoveThere(color, from, to)
 }
 
 function IsCanMoveTherePawn(from, to, color, to_piece)
-{
+{	
 	from_replaced = from.replace('[', '');
 	from_replaced = from_replaced.replace(']', '');
 	from_splitted = from_replaced.split(',');
@@ -65,6 +65,9 @@ function IsCanMoveTherePawn(from, to, color, to_piece)
 	horizontal_move = 0;
 	vertical_move = 0;
 	
+	horizontal_move = parseInt(to_y) - parseInt(from_y);
+	vertical_move = parseInt(to_x) - parseInt(from_x);
+
 	if(color == "white")
 	{
 		if(vertical_move == 1 && (horizontal_move == 1 || horizontal_move == -1)){
@@ -72,19 +75,17 @@ function IsCanMoveTherePawn(from, to, color, to_piece)
 				return true;
 			}
 		}
-		
-		if(vertical_move == 1 && horizontal_move == 0){
-			if(to_piece = ""){
+		if(vertical_move == 0 && horizontal_move == 1){
+			if(to_piece = "" || !to_piece){
 				return true;	
 			}
 		}
 		
-		if(from_y == 1 && vertical_move == 2 && horizontal_move == 0){
+		if(from_y == 1 && horizontal_move == 2 && vertical_move == 0){
 			if(GetPiece("["+from_x+","+(from_y+1)+"]") == "" && to_piece == ""){
 				return true;	
 			}
 		}
-		
 		return false;
 	}
 	else
@@ -95,13 +96,13 @@ function IsCanMoveTherePawn(from, to, color, to_piece)
 			}
 		}
 		
-		if(vertical_move == -1 && horizontal_move == 0){
-			if(to_piece = ""){
+		if(vertical_move == 0 && horizontal_move == -1){
+			if(to_piece = "" || !to_piece){
 				return true;	
 			}
 		}
 		
-		if(from_y == 6 && vertical_move == -2 && horizontal_move == 0){
+		if(from_y == 6 && horizontal_move == -2 && vertical_move == 0){
 			if(GetPiece("["+from_x+","+(from_y-1)+"]") == "" && to_piece == ""){
 				return true;	
 			}
