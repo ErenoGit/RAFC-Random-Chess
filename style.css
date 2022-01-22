@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(87, 87, 87);
+    background-color: rgb(64, 64, 64);
 }
 
 #field {
@@ -21,11 +21,27 @@ body {
 }
 
 .blackfield {
-    background-color: black;
-    color: wheat;
+    background-color: rgb(112, 106, 113);
+    color: black;
 }
 
 .whitefield {
     background-color: wheat;
     color: black;
+}
+
+.resultON {
+    background-color: rgb(160, 160, 160);
+    color: black;
+    font-size: 400%;
+    text-align: center;
+    position: absolute;
+    margin: auto;
+    height: 190px;
+    width: 786px;
+  border-style: groove;
+  border-width: 7px;
+}
+.resultOFF {
+    
 }
