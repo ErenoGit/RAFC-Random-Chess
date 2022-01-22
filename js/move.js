@@ -363,11 +363,14 @@ function IsCanMoveThereKing(from, to)
 	to_x = parseInt(to_splitted[0]);
 	to_y = parseInt(to_splitted[1]);
 	
-	if((from_x - to_x != 1 && from_x - to_x != 0 && from_x - to_x != -1) && (from_y - to_y != 1 && from_y - to_y != 0 && from_y - to_y != -1)){
-		return false;
+	horizontal_move = to_y - from_y;
+	vertical_move = to_x - from_x;
+	
+	if((horizontal_move == -1 || horizontal_move == 0 || horizontal_move == 1) && (vertical_move == -1 || vertical_move == 0 || vertical_move == 1)){
+		return true;
 	}
 	
-	return true;
+	return false;
 }
 
 function IsCanMoveThereRook(from, to)
