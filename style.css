@@ -10,17 +10,22 @@ body {
     margin:auto;
 }
 
+.blackfield, .whitefield {
+	width: 100px;
+    height: 100px;
+	float: left;
+	text-align: center;
+	font-size: 100px;
+	line-height: 100px;
+	user-select: none;
+}
+
 .blackfield {
     background-color: black;
-    width: 100px;
-    height: 100px;
     color: wheat;
-    float: left;
 }
+
 .whitefield {
     background-color: wheat;
-    width: 100px;
-    height: 100px;
     color: black;
-    float: left;
 }
