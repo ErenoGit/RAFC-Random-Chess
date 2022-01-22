@@ -6,20 +6,14 @@ async function NewGame()
 	while (true) {
 		Move("white");
 		IsCheckmate();
-		await sleep(500);
+		await sleep(1000);
 		Move("black");
 		IsCheckmate();
-		await sleep(500);
+		await sleep(1000);
 	}
 }
 
 
-function IsCanMoveThere(from, to)
-{
-	//to do
-	
-	return true;
-}
 
 function IsCheckmate()
 {
@@ -30,40 +24,15 @@ function Move(color)
 {
 	while(true)
 	{
-		from = GetRandomPlace(color);
+		from = GetRandomPlaceByColor(color);
 		to = GetRandomPlace();
-		if(IsCanMoveThere(from, to) == false) {
+		if(from == to || IsCanMoveThere(color, from, to) == false) {
 			continue;
 		}
-		
+		console.log("from: "+from+" to: "+to);
 		PutPiece(to, GetPiece(from))
 		RemovePiece(from);
 		break;
-	}
-}
-
-
-
-
-function GetRandomPlace(color)
-{
-	place = "";
-	while(place == "")
-	{
-		randomPlace = GetRandomPlace();
-		
-		if(color == "white")
-		{
-			if(GetPiece(randomPlace) == "♙" || GetPiece(randomPlace) == "♖" || GetPiece(randomPlace) == "♘" || GetPiece(randomPlace) == "♗" || GetPiece(randomPlace) == "♕" || GetPiece(randomPlace) == "♔"){
-				return randomPlace;
-			}
-		}
-		else
-		{
-			if(GetPiece(randomPlace) == "♟" || GetPiece(randomPlace) == "♜" || GetPiece(randomPlace) == "♞" || GetPiece(randomPlace) == "♝" || GetPiece(randomPlace) == "♛" || GetPiece(randomPlace) == "♚"){
-				return randomPlace;
-			}
-		}
 	}
 }
 
@@ -72,7 +41,6 @@ function GetRandomPlace()
 {
 	return "["+randomIntFromInterval(0, 7)+","+randomIntFromInterval(0, 7)+"]";
 }
-
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
