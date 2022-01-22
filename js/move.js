@@ -20,22 +20,42 @@ function IsCanMoveThere(color, from, to)
 		case "":
 			return false;
 		break;
-		case "♙" || "♟":
+		
+		case "♙":
 			return IsCanMoveTherePawn(from, to);
 		break;
-		case "♖" || "♜":
+		case "♖":
 			return IsCanMoveThereRook(from, to);
 		break;
-		case "♘" || "♞":
+		case "♘":
 			return IsCanMoveThereKnight(from, to);
 		break;
-		case "♗" || "♝":
+		case "♗":
 			return IsCanMoveThereBishop(from, to);
 		break;
-		case "♕" || "♛":
+		case "♕":
 			return IsCanMoveThereQueen(from, to);
 		break;
-		case "♔" || "♚":
+		case "♔":
+			return IsCanMoveThereKing(from, to);
+		break;
+		
+		case "♟":
+			return IsCanMoveTherePawn(from, to);
+		break;
+		case "♜":
+			return IsCanMoveThereRook(from, to);
+		break;
+		case "♞":
+			return IsCanMoveThereKnight(from, to);
+		break;
+		case "♝":
+			return IsCanMoveThereBishop(from, to);
+		break;
+		case "♛":
+			return IsCanMoveThereQueen(from, to);
+		break;
+		case "♚":
 			return IsCanMoveThereKing(from, to);
 		break;
 	}
