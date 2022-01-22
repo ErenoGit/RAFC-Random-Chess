@@ -55,6 +55,52 @@ function IsCanMoveTherePawn(from, to)
 
 function IsCanMoveThereKnight(from, to)
 {
+	from_replaced = from.replace('[', '');
+	from_replaced = from_replaced.replace(']', '');
+	from_splitted = from_replaced.split(',');
+	from_x = parseInt(from_splitted[0]);
+	from_y = parseInt(from_splitted[1]);
+			
+	to_replaced = to.replace('[', '');
+	to_replaced = to_replaced.replace(']', '');
+	to_splitted = to_replaced.split(',');
+	to_x = parseInt(to_splitted[0]);
+	to_y = parseInt(to_splitted[1]);
+			
+	horizontal_move = 0;
+	vertical_move = 0;
+	
+	horizontal_move = to_y - from_y;
+	vertical_move = to_x - from_x;
+	
+	if(horizontal_move == 2 && vertical_move == 1){
+		return true;
+	}
+	else if(horizontal_move == 2 && vertical_move == -1){
+		return true;
+	}
+	else if(horizontal_move == -2 && vertical_move == 1){
+		return true;
+	}
+	else if(horizontal_move == -2 && vertical_move == -1){
+		return true;
+	}
+	else if(horizontal_move == 1 && vertical_move == 2){
+		return true;
+	}
+	else if(horizontal_move == 1 && vertical_move == -2){
+		return true;
+	}
+	else if(horizontal_move == -1 && vertical_move == 2){
+		return true;
+	}
+	else if(horizontal_move == -1 && vertical_move == -2){
+		return true;
+	}
+	else{
+		return false;
+	}
+	
 	return true;
 }
 
