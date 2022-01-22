@@ -1,9 +1,9 @@
 function ChessboardStartPlace()
 {
-	PutPiece("[0,0]", "♖");
+	// PutPiece("[0,0]", "♖");
 	// PutPiece("[1,0]", "♘");
 	// PutPiece("[2,0]", "♗");
-	// PutPiece("[3,0]", "♕");
+	 PutPiece("[3,0]", "♕");
 	// PutPiece("[4,0]", "♔");
 	// PutPiece("[5,0]", "♗");
 	// PutPiece("[6,0]", "♘");
@@ -17,10 +17,10 @@ function ChessboardStartPlace()
 	// PutPiece("[6,1]", "♙");
 	// PutPiece("[7,1]", "♙");
 	
-	PutPiece("[0,7]", "♜");
+	// PutPiece("[0,7]", "♜");
 	// PutPiece("[1,7]", "♞");
 	// PutPiece("[2,7]", "♝");
-	// PutPiece("[3,7]", "♛");
+	 PutPiece("[3,7]", "♛");
 	// PutPiece("[4,7]", "♚");
 	// PutPiece("[5,7]", "♝");
 	// PutPiece("[6,7]", "♞");
