@@ -60,6 +60,76 @@ function IsCanMoveThereKnight(from, to)
 
 function IsCanMoveThereBishop(from, to)
 {
+	from_replaced = from.replace('[', '');
+	from_replaced = from_replaced.replace(']', '');
+	from_splitted = from_replaced.split(',');
+	from_x = parseInt(from_splitted[0]);
+	from_y = parseInt(from_splitted[1]);
+			
+	to_replaced = to.replace('[', '');
+	to_replaced = to_replaced.replace(']', '');
+	to_splitted = to_replaced.split(',');
+	to_x = parseInt(to_splitted[0]);
+	to_y = parseInt(to_splitted[1]);
+			
+	horizontal_move = 0;
+	vertical_move = 0;
+			
+	if(Math.abs(to_y - from_y) == Math.abs(to_x - from_x)){
+		//diagonally
+		horizontal_move = to_y - from_y;
+		vertical_move = to_x - from_x;
+	}
+	else{
+		return false;
+	}
+			
+	var between = [];
+			
+	if(vertical_move > 0 && horizontal_move > 0)
+	{
+		//move to up-right
+		j = from_y + 1;
+		for (var i = from_x + 1; i < to_x; i++) {
+		   between.push("["+ i + "," + j + "]");
+		   j++;
+		}
+	}
+	else if(vertical_move < 0 && horizontal_move > 0)
+	{
+		//move to up-left
+		j = from_y + 1;
+		for (var i = from_x - 1; i > to_x; i--) {
+		   between.push("["+ i + "," + j + "]");
+		   j++;
+		}
+	}
+	else if(vertical_move < 0 && horizontal_move < 0)
+	{
+		//move to down-left
+		j = from_y - 1;
+		for (var i = from_x - 1; i > to_x; i--) {
+		   between.push("["+ i + "," + j + "]");
+		   j--;
+		}
+	}
+	else if(vertical_move > 0 && horizontal_move < 0)
+	{
+		//move to down-right
+		j = from_y - 1;
+		for (var i = from_x + 1; i < to_x; i++) {
+		   between.push("["+ i + "," + j + "]");
+		   j--;
+		}
+	}
+				
+			
+	for (const element of between) {
+		if(GetPiece(element) != ""){
+			return false;
+		}
+	}
+			
 	return true;
 }
 
