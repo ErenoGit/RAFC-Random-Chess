@@ -1,11 +1,16 @@
+isCheckmate = 0;
+
 async function NewGame()
 {
 	ChessboardStartPlace();
 	await sleep(1000);
 	
-	while (true) {
+	while (isCheckmate == 0) {
 		Move("white");
 		IsCheckmate();
+		if(isCheckmate != 0){
+			break;
+		}
 		await sleep(100);
 		Move("black");
 		IsCheckmate();
@@ -17,7 +22,14 @@ async function NewGame()
 
 function IsCheckmate()
 {
-	//to do
+	if(isCheckmate == 1)
+	{
+		console.log("White won!");
+	}
+	else if(isCheckmate == 2)
+	{
+		console.log("Black won!");
+	}
 }
 
 async function Move(color)
@@ -38,8 +50,15 @@ async function Move(color)
 			continue;
 		}
 		
-	if((GetPiece(from) == "♙" || GetPiece(from) == "♟") && CheckIsItPromoteField(to)){
+		if((GetPiece(from) == "♙" || GetPiece(from) == "♟") && CheckIsItPromoteField(to)){
 			PromotePawn(from, color);
+		}
+		
+		if(GetPiece(to) == "♚"){
+			isCheckmate = 1;
+		}
+		else if(GetPiece(to) == "♔"){
+			isCheckmate = 2;
 		}
 		
 		PutPiece(to, GetPiece(from))
@@ -156,7 +175,7 @@ function GetRandomPlaceForPawn(from, pawn)
 	{
 		if(randomForPawn == 0)
 		{
-			if(from_y == 6){
+			if(from_y == 1){
 				return "[0,0]";
 			}
 			return "["+from_x+","+(from_y-2)+"]";
