@@ -35,10 +35,14 @@ function ChessboardStartPlace()
 	PutPiece("[6,7]", "♙");
 }
 
-
-function RemovePiece(place, piece)
+function GetPiece(place)
 {
-	document.getElementById(place).innerHTML = piece;
+	return document.getElementById(place).innerHTML;
+}
+
+function RemovePiece(place)
+{
+	document.getElementById(place).innerHTML = "";
 }
 
 function PutPiece(place, piece)
