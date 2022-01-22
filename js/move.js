@@ -21,7 +21,7 @@ function IsCanMoveThere(color, from, to)
 			return false;
 		
 		case "♙":
-			return IsCanMoveTherePawn(from, to);
+			return IsCanMoveTherePawn(from, to, color, to_piece);
 		case "♖":
 			return IsCanMoveThereRook(from, to);
 		case "♘":
@@ -34,7 +34,7 @@ function IsCanMoveThere(color, from, to)
 			return IsCanMoveThereKing(from, to);
 		
 		case "♟":
-			return IsCanMoveTherePawn(from, to);
+			return IsCanMoveTherePawn(from, to, color, to_piece);
 		case "♜":
 			return IsCanMoveThereRook(from, to);
 		case "♞":
@@ -48,10 +48,69 @@ function IsCanMoveThere(color, from, to)
 	}
 }
 
-function IsCanMoveTherePawn(from, to)
+function IsCanMoveTherePawn(from, to, color, to_piece)
 {
-	return true;
+	from_replaced = from.replace('[', '');
+	from_replaced = from_replaced.replace(']', '');
+	from_splitted = from_replaced.split(',');
+	from_x = parseInt(from_splitted[0]);
+	from_y = parseInt(from_splitted[1]);
+			
+	to_replaced = to.replace('[', '');
+	to_replaced = to_replaced.replace(']', '');
+	to_splitted = to_replaced.split(',');
+	to_x = parseInt(to_splitted[0]);
+	to_y = parseInt(to_splitted[1]);
+			
+	horizontal_move = 0;
+	vertical_move = 0;
+	
+	if(color == "white")
+	{
+		if(vertical_move == 1 && (horizontal_move == 1 || horizontal_move == -1)){
+			if(to_piece == "♟" || to_piece == "♜" || to_piece == "♞" || to_piece == "♝" || to_piece == "♛" || to_piece == "♚"){
+				return true;
+			}
+		}
+		
+		if(vertical_move == 1 && horizontal_move == 0){
+			if(to_piece = ""){
+				return true;	
+			}
+		}
+		
+		if(from_y == 1 && vertical_move == 2 && horizontal_move == 0){
+			if(GetPiece("["+from_x+","+(from_y+1)+"]") == "" && to_piece == ""){
+				return true;	
+			}
+		}
+		
+		return false;
+	}
+	else
+	{
+		if(vertical_move == -1 && (horizontal_move == 1 || horizontal_move == -1)){
+			if(to_piece == "♙" || to_piece == "♖" || to_piece == "♘" || to_piece == "♗" || to_piece == "♕" || to_piece == "♔"){
+				return true;
+			}
+		}
+		
+		if(vertical_move == -1 && horizontal_move == 0){
+			if(to_piece = ""){
+				return true;	
+			}
+		}
+		
+		if(from_y == 6 && vertical_move == -2 && horizontal_move == 0){
+			if(GetPiece("["+from_x+","+(from_y-1)+"]") == "" && to_piece == ""){
+				return true;	
+			}
+		}
+		
+		return false;
+	}
 }
+
 
 function IsCanMoveThereKnight(from, to)
 {
