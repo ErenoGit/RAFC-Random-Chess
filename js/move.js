@@ -83,6 +83,22 @@ function IsCanMoveThereQueen(from, to)
 
 function IsCanMoveThereKing(from, to)
 {
+	from_replaced = from.replace('[', '');
+	from_replaced = from_replaced.replace(']', '');
+	from_splitted = from_replaced.split(',');
+	from_x = parseInt(from_splitted[0]);
+	from_y = parseInt(from_splitted[1]);
+			
+	to_replaced = to.replace('[', '');
+	to_replaced = to_replaced.replace(']', '');
+	to_splitted = to_replaced.split(',');
+	to_x = parseInt(to_splitted[0]);
+	to_y = parseInt(to_splitted[1]);
+	
+	if((from_x - to_x != 1 && from_x - to_x != 0 && from_x - to_x != -1) && (from_y - to_y != 1 && from_y - to_y != 0 && from_y - to_y != -1)){
+		return false;
+	}
+	
 	return true;
 }
 
