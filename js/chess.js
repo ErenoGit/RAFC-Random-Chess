@@ -24,11 +24,11 @@ function IsCheckmate()
 {
 	if(isCheckmate == 1)
 	{
-		console.log("White won!");
+		RemoveMidOfBoardAndShowWinner("White won!");
 	}
 	else if(isCheckmate == 2)
 	{
-		console.log("Black won!");
+		RemoveMidOfBoardAndShowWinner("Black won!");
 	}
 }
 
@@ -200,6 +200,13 @@ function GetRandomPlaceForPawn(from, pawn)
 		}
 	}
 }
+
+function RemoveMidOfBoardAndShowWinner(text)
+{
+	document.getElementById("winner").innerHTML = text;
+	document.getElementById("winner").style.display = "block";
+}
+		
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
